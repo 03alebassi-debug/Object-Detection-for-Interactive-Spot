@@ -32,7 +32,7 @@ Available Commands:
   [q]     : Shut down the camera and exit
 --------------------------------------------------
 >""", end=" ")
-        x = input()
+        x = input().strip()
         if x == "clear":
             text_prompts.clear()
             print("The prompt has been cleaned")
@@ -65,10 +65,8 @@ print("--- Initializing RealSense Camera ---")
 pipeline = rs.pipeline()
 config = rs.config()
 
-# ULTRA-LOW BANDWIDTH SETTINGS
-# 424x240 is the smallest stable resolution for the D415
-# 6 FPS is the absolute minimum to prevent the USB 2.0 bus from crashing
-config.enable_stream(rs.stream.color, 424, 240, rs.format.rgb8, 6)
+config.enable_stream(rs.stream.color)
+config.enable_stream(rs.stream.depth) 
 
 # Start streaming
 try:
@@ -76,7 +74,6 @@ try:
     rs.log_to_console(rs.log_severity.error)
     pipeline.start(config)
     
-    # HARDWARE WARM-UP: Give the camera 3 seconds to stabilize power
     print("Camera started! Waiting 3 seconds for hardware to stabilize...")
     time.sleep(3) 
     
@@ -85,21 +82,27 @@ except Exception as e:
     exit(1)
 
 try:
-
     prompt_thread = threading.Thread(target=writing_prompt_thread, daemon=True)
     prompt_thread.start()
-    print("Starting Detection. Press 'q' to quit.")
+    
     last_warning_time = 0
+
+    align_to_color = rs.align(rs.stream.color)
+
     while keep_running:
-        # Wait for a frame (Timeout set to 10 seconds for slow cables)
         frames = pipeline.wait_for_frames(10000)
-        color_frame = frames.get_color_frame()
+        aligned_frames = align_to_color.process(frames)
         
-        if not color_frame:
+        color_frame = aligned_frames.get_color_frame()
+        depth_frame = aligned_frames.get_depth_frame()
+
+        if not color_frame or not depth_frame:
             continue
 
         # Convert RealSense frame to numpy array
         # Note: We use RGB8 because it's lighter for USB 2.0
+        depth_image = np.asanyarray(depth_frame.get_data())
+
         color_image_rgb = np.asanyarray(color_frame.get_data())
         
         # Convert to BGR for OpenCV display
@@ -129,10 +132,15 @@ try:
                 label_idx = int(output.labels[i])
                 score = float(output.scores[i])
 
-                label_text = f"{text_prompts[label_idx]} {score:.2f}"
+                center_x = int(( x0 + x1 ) / 2)
+                center_y = int(( y0 + y1 ) / 2)
+                distance = depth_frame.get_distance(center_x, center_y)
 
+                combined_text = f"{text_prompts[label_idx]} {score:.2f} | Dist: {distance:.2f}m"
+
+                # Draw the box and the single combined string
                 cv2.rectangle(color_image_bgr, (x0, y0), (x1, y1), (0, 255, 0), 2)
-                cv2.putText(color_image_bgr, label_text, (x0, y0 - 10), 
+                cv2.putText(color_image_bgr, combined_text, (x0, y0 - 10), 
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
             # Display the frame

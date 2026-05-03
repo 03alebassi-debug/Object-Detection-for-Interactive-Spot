@@ -48,6 +48,26 @@ Available Commands:
             text_prompts.append(x)
             print(f"The prompt has been saved")
 
+def compute_average_distance(depth_frame, center_x, center_y):
+    distances = []
+    for x in range(-10, 11, 2):
+        dx = center_x + x
+        if dx >= 0 and dx < depth_frame.width:
+            for y in range(-10, 11, 2):
+                dy = center_y + y
+                if dy >=0 and dy < depth_frame.height:
+                    distance = depth_frame.get_distance(dx, dy)
+                    if distance > 0:
+                        distances.append(distance)
+    if len(distances) > 0:
+        avg = sum(distances) / len(distances)
+        final_distance = avg
+    else:
+        final_distance = 0
+    return final_distance
+
+
+
 # 1. Initialize NanoOWL Predictor
 print("--- Loading NanoOWL Engine ---")
 try:
@@ -100,7 +120,6 @@ try:
             continue
 
         # Convert RealSense frame to numpy array
-        # Note: We use RGB8 because it's lighter for USB 2.0
         depth_image = np.asanyarray(depth_frame.get_data())
 
         color_image_rgb = np.asanyarray(color_frame.get_data())
@@ -134,9 +153,9 @@ try:
 
                 center_x = int(( x0 + x1 ) / 2)
                 center_y = int(( y0 + y1 ) / 2)
-                distance = depth_frame.get_distance(center_x, center_y)
+                distance = compute_average_distance(depth_frame, center_x, center_y)
 
-                combined_text = f"{text_prompts[label_idx]} {score:.2f} | Dist: {distance:.2f}m"
+                combined_text = f"{text_prompts[label_idx]} {score:.2f} | Avg_Dist: {distance:.2f}m"
 
                 # Draw the box and the single combined string
                 cv2.rectangle(color_image_bgr, (x0, y0), (x1, y1), (0, 255, 0), 2)

@@ -13,7 +13,7 @@ The goal of this module is to seamlessly connect user voice commands with visual
 
 - [x] **Establish Baseline Detection:** Integrate and verify NanoOWL to ensure the core open-vocabulary object recognition is functioning correctly.
 - [x] **Dynamic Prompting:** Implement multithreading to allow the system to continuously update and process search prompts in real-time without blocking the main execution loop.
-- [ ] **Spatial Awareness:** Extract and process depth information to determine the physical distance and coordinates of the recognized objects.
+- [x] **Spatial Awareness:** Extract and process depth information to determine the physical distance and coordinates of the recognized objects.
 - [ ] **Command Parsing & Integration:** Develop a parser to process multi-modal commands (e.g., *"pick a ball"*). This step will:
   1. Extract the target object (*"ball"*) and inject it into the object recognition prompt.
   2. Extract the action (*"pick"*) and trigger the corresponding physical routine in the robot's main control system.

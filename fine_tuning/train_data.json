@@ -1,0 +1,457 @@
+[
+  {
+    "tokenized_text": ["Follow", "Timon", "and", "find", "the", "bottle"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 1, "person name"],
+      [3, 3, "action command"],
+      [5, 5, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["Please", "pass", "the", "blue", "bottle", "to", "Prof.", "Olov", "Andersson"],
+    "ner": [
+      [1, 1, "action command"],
+      [3, 3, "object color"],
+      [4, 4, "physical object"],
+      [6, 8, "person name"]
+    ]
+  },
+  {
+    "tokenized_text": ["Find", "Jesus", "and", "bring", "the", "blue", "ball", "right"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 1, "person name"],
+      [3, 3, "action command"],
+      [5, 5, "object color"],
+      [6, 6, "physical object"], 
+      [7, 7, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["Find", "the", "fridge"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["Follow", "the", "book"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["Turn", "right", "and", "find", "Ellen"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 1, "spatial direction"],
+      [3, 3, "action command"],
+      [4, 4, "person name"]
+    ]
+  },
+  {
+    "tokenized_text": ["Step", "back", "and", "turn", "left"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 1, "spatial direction"],
+      [3, 3, "action command"],
+      [4, 4, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["Grab", "the", "book", "on", "the", "left"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "physical object"],
+      [5, 5, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["Turn", "left", "spin", "on", "place", "and", "follow", "Jesus"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 1, "spatial direction"],
+      [2, 2, "action command"],
+      [3, 4, "spatial direction"],
+      [6, 6, "action command"],
+      [7, 7, "person name"]
+    ]
+  },
+  {
+    "tokenized_text": ["Find", "the", "red", "ball"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["Find", "the", "green", "book"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["Follow", "the", "blue", "book"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["Find", "the", "washing", "machine"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 3, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["Spin", "on", "place", "and", "grab", "the", "bottle"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 2, "spatial direction"],
+      [4, 4, "action command"],
+      [6, 6, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["Grab", "the", "bottle", "move", "on", "the", "right", "and", "put", "down", "the", "bottle"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "physical object"],
+      [3, 3, "action command"],
+      [6, 6, "spatial direction"],
+      [8, 9, "action command"],
+      [11, 11, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["Grab", "the", "red", "ball", "on", "the", "left", "find", "Ellen"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [6, 6, "spatial direction"],
+      [7, 7, "action command"],
+      [8, 8, "person name"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "the", "blue", "ball", "and", "pick", "up", "the", "blue", "ball"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [5, 6, "action command"],
+      [8, 8, "object color"],
+      [9, 9, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["spin", "on", "place", "find", "the", "bottle"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 2, "spatial direction"],
+      [3, 3, "action command"],
+      [5, 5, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "the", "red", "ball", "bring", "the", "red", "ball", "to", "Jesus"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [4, 4, "action command"],
+      [6, 6, "object color"],
+      [7, 7, "physical object"],
+      [9, 9, "person name"]
+    ]
+  },
+  {
+    "tokenized_text": ["pick", "the", "yellow", "book", "on", "the", "left"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [6, 6, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["do", "one", "step", "to", "the", "left", "and", "pick", "the", "blue", "ball"],
+    "ner": [
+      [0, 2, "action command"],
+      [5, 5, "spatial direction"],
+      [7, 7, "action command"],
+      [9, 9, "object color"],
+      [10, 10, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["do", "one", "step", "to", "the", "right", "and", "turn", "on", "place"],
+    "ner": [
+      [0, 2, "action command"],
+      [5, 5, "spatial direction"],
+      [7, 7, "action command"],
+      [8, 9, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "the", "red", "book", "and", "follow", "Ellen"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [5, 5, "action command"],
+      [6, 6, "person name"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "Prof.", "Olov", "Andersson", "and", "grab", "the", "red", "ball"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 3, "person name"],
+      [5, 5, "action command"],
+      [7, 7, "object color"],
+      [8, 8, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["do", "one", "step", "to", "the", "left", "and", "find", "the", "black", "box"],
+    "ner": [
+      [0, 2, "action command"],
+      [5, 5, "spatial direction"],
+      [7, 7, "action command"],
+      [9, 9, "object color"],
+      [10, 10, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["pick", "the", "green", "box"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["turn", "on", "place", "and", "bring", "the", "red", "box", "to", "Jesus"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 2, "spatial direction"],
+      [4, 4, "action command"],
+      [6, 6, "object color"],
+      [7, 7, "physical object"],
+      [9, 9, "person name"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "Timon", "and", "pick", "up", "the", "yellow", "box"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 1, "person name"],
+      [3, 4, "action command"],
+      [6, 6, "object color"],
+      [7, 7, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["turn", "on", "place", "turn", "right", "and", "pick", "the", "box", "right"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 2, "spatial direction"],
+      [3, 3, "action command"],
+      [4, 4, "spatial direction"],
+      [6, 6, "action command"],
+      [8, 8, "physical object"],
+      [9, 9, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["turn", "left", "and", "pick", "the", "yellow", "book", "left"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 1, "spatial direction"],
+      [3, 3, "action command"],
+      [5, 5, "object color"],
+      [6, 6, "physical object"],
+      [7, 7, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "Jesus", "and", "bring", "the", "red", "ball", "right"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 1, "person name"],
+      [3, 3, "action command"],
+      [5, 5, "object color"],
+      [6, 6, "physical object"],
+      [7, 7, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "the", "black", "box"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "Prof.", "Olov", "Andersson", "grab", "the", "red", "ball", "drop", "the", "red", "ball"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 3, "person name"],
+      [4, 4, "action command"],
+      [6, 6, "object color"],
+      [7, 7, "physical object"],
+      [8, 8, "action command"],
+      [10, 10, "object color"],
+      [11, 11, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["follow", "Prof.", "Olov", "Andersson", "turn", "on", "place", "and", "turn", "left"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 3, "person name"],
+      [4, 4, "action command"],
+      [5, 6, "spatial direction"],
+      [8, 8, "action command"],
+      [9, 9, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["turn", "left", "pick", "the", "ball", "turn", "right", "drop", "the", "ball"],
+    "ner": [
+      [0, 0, "action command"],
+      [1, 1, "spatial direction"],
+      [2, 2, "action command"],
+      [4, 4, "physical object"],
+      [5, 5, "action command"],
+      [6, 6, "spatial direction"],
+      [7, 7, "action command"],
+      [9, 9, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "the", "black", "box", "right", "pick", "the", "box", "turn", "right"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [4, 4, "spatial direction"],
+      [5, 5, "action command"],
+      [7, 7, "physical object"],
+      [8, 8, "action command"],
+      [9, 9, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "the", "yellow", "book", "left", "pick", "the", "ball", "turn", "left"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [4, 4, "spatial direction"],
+      [5, 5, "action command"],
+      [7, 7, "physical object"],
+      [8, 8, "action command"],
+      [9, 9, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["Find", "the", "book", "grab", "the", "book", "turn", "left", "and", "put", "down", "the", "book"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "physical object"],
+      [3, 3, "action command"],
+      [5, 5, "physical object"],
+      [6, 6, "action command"],
+      [7, 7, "spatial direction"],
+      [9, 10, "action command"],
+      [12, 12, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["follow", "the", "red", "ball", "grab", "the", "ball", "and", "spin", "on", "place"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [4, 4, "action command"],
+      [6, 6, "physical object"],
+      [8, 8, "action command"],
+      [9, 10, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "the", "yellow", "ball", "pick", "the", "yellow", "ball", "find", "Jesus", "drop", "the", "ball"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [4, 4, "action command"],
+      [6, 6, "object color"],
+      [7, 7, "physical object"],
+      [8, 8, "action command"],
+      [9, 9, "person name"],
+      [10, 10, "action command"],
+      [12, 12, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["pick", "the", "red", "ball", "left"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "object color"],
+      [3, 3, "physical object"],
+      [4, 4, "spatial direction"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "the", "bottle", "grab", "the", "bottle", "find", "Jesus", "drop", "the", "bottle"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "physical object"],
+      [3, 3, "action command"],
+      [5, 5, "physical object"],
+      [6, 6, "action command"],
+      [7, 7, "person name"],
+      [8, 8, "action command"],
+      [10, 10, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["pick", "the", "ball", "right", "turn", "on", "place", "drop", "the", "ball", "find", "the", "bottle"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "physical object"],
+      [3, 3, "spatial direction"],
+      [4, 4, "action command"],
+      [5, 6, "spatial direction"],
+      [7, 7, "action command"],
+      [9, 9, "physical object"],
+      [10, 10, "action command"],
+      [12, 12, "physical object"]
+    ]
+  },
+  {
+    "tokenized_text": ["find", "the", "book", "turn", "right", "pick", "the", "yellow", "book", "left"],
+    "ner": [
+      [0, 0, "action command"],
+      [2, 2, "physical object"],
+      [3, 3, "action command"],
+      [4, 4, "spatial direction"],
+      [5, 5, "action command"],
+      [7, 7, "object color"],
+      [8, 8, "physical object"],
+      [9, 9, "spatial direction"]
+    ]
+  }
+]

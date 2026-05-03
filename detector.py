@@ -10,13 +10,19 @@ import numpy as np
 import pyrealsense2 as rs
 import time
 from PIL import Image
-from nanoowl.owl_predictor import OwlPredictor
 import threading
+from gliner import GLiNER
+
+from nanoowl.owl_predictor import OwlPredictor
+
+model_path = "fine_tuning/custom_models/small_model/robot_brain_small_FINAL"
+model = GLiNER.from_pretrained(model_path, local_files_only=True)
 
 text_prompts = []
 stop_signal = "q" 
 keep_running = True
 threshold = 0.1
+labels = ["action command", "person name", "object color", "physical object", "spatial direction"]
  
 
 def writing_prompt_thread():
@@ -45,8 +51,31 @@ Available Commands:
         elif x == "show":
             print(f"The current prompt is: {', '.join(text_prompts)}")
         else:
-            text_prompts.append(x)
-            print(f"The prompt has been saved")
+            entities = model.predict_entities(x, labels, threshold=0.9)
+            target_object = ""
+            target_color = ""
+            target_direction = ""
+            
+            for entity in entities:
+                if entity["label"] == "physical object":
+                    target_object = entity["text"].upper()
+                elif entity["label"] == "object color":
+                    target_color = entity["text"].upper() 
+            
+            if not target_object:
+                print("No object found in that command.")
+                continue 
+            
+            final_parts = []
+            
+            if target_color:
+                final_parts.append(target_color)
+                
+            final_parts.append(target_object) 
+                
+            final_prompt = " ".join(final_parts) 
+            text_prompts.append(final_prompt)
+            print(f"The prompt '{final_prompt}' has been saved.")
 
 def compute_average_distance(depth_frame, center_x, center_y):
     distances = []
@@ -80,7 +109,6 @@ except Exception as e:
     print(f"Error loading engine: {e}")
     exit(1)
 
-# 2. Initialize Intel RealSense D415
 print("--- Initializing RealSense Camera ---")
 pipeline = rs.pipeline()
 config = rs.config()
@@ -88,7 +116,6 @@ config = rs.config()
 config.enable_stream(rs.stream.color)
 config.enable_stream(rs.stream.depth) 
 
-# Start streaming
 try:
     print("Starting pipeline...")
     rs.log_to_console(rs.log_severity.error)
@@ -131,7 +158,7 @@ try:
         pil_image = Image.fromarray(color_image_rgb)
 
         if not text_prompts:
-            cv2.imshow('NanoOWL + RealSense (Emergency Mode)', color_image_bgr)
+            cv2.imshow('NanoOWL + RealSense', color_image_bgr)
             cv2.waitKey(1)
             continue
 
@@ -157,12 +184,11 @@ try:
 
                 combined_text = f"{text_prompts[label_idx]} {score:.2f} | Avg_Dist: {distance:.2f}m"
 
-                # Draw the box and the single combined string
+                
                 cv2.rectangle(color_image_bgr, (x0, y0), (x1, y1), (0, 255, 0), 2)
                 cv2.putText(color_image_bgr, combined_text, (x0, y0 - 10), 
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
-            # Display the frame
         cv2.imshow('NanoOWL + RealSense (Emergency Mode)', color_image_bgr)
         cv2.waitKey(1)
 
